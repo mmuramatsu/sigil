@@ -1,0 +1,142 @@
+[
+  {
+    "type": "JPEG/JPG",
+    "offset": 0,
+    "signature": [255, 216, 255]
+  },
+  {
+    "type": "PNG",
+    "offset": 0,
+    "signature": [137, 80, 78, 71, 13, 10, 26, 10]
+  },
+  {
+    "type": "GIF",
+    "offset": 0,
+    "signature": [71, 73, 70, 56]
+  },
+  {
+    "type": "BMP",
+    "offset": 0,
+    "signature": [66, 77]
+  },
+  {
+    "type": "TIFF (Little Endian)",
+    "offset": 0,
+    "signature": [73, 73, 42, 0]
+  },
+  {
+    "type": "TIFF (Big Endian)",
+    "offset": 0,
+    "signature": [77, 77, 0, 42]
+  },
+  {
+    "type": "PDF",
+    "offset": 0,
+    "signature": [37, 80, 68, 70]
+  },
+  {
+    "type": "ZIP Archive",
+    "offset": 0,
+    "signature": [80, 75, 3, 4]
+  },
+  {
+    "type": "RAR Archive",
+    "offset": 0,
+    "signature": [82, 97, 114, 33, 26, 7, 0]
+  },
+  {
+    "type": "GZ Archive (gzip)",
+    "offset": 0,
+    "signature": [31, 139, 8]
+  },
+  {
+    "type": "7z Archive",
+    "offset": 0,
+    "signature": [55, 122, 188, 175, 39, 28]
+  },
+  {
+    "type": "MP3 (ID3 Tag)",
+    "offset": 0,
+    "signature": [73, 68, 51]
+  },
+  {
+    "type": "WAV",
+    "offset": 0,
+    "signature": [82, 73, 70, 70]
+  },
+  {
+    "type": "MPEG Video (MPG/MP4)",
+    "offset": 4,
+    "signature": [102, 116, 121, 112]
+  },
+  {
+    "type": "Windows Executable (EXE/DLL)",
+    "offset": 0,
+    "signature": [77, 90]
+  },
+  {
+    "type": "Microsoft Office (DOCX/XLSX/PPTX - Open XML)",
+    "offset": 0,
+    "signature": [80, 75, 3, 4, 20, 0, 6, 0]
+  },
+  {
+    "type": "Linux Executable (ELF)",
+    "offset": 0,
+    "signature": [127, 69, 76, 70]
+  },
+  {
+    "type": "WebM/Matroska (MKV)",
+    "offset": 0,
+    "signature": [26, 69, 223, 163]
+  },
+  {
+    "type": "ISO Disk Image",
+    "offset": 32769,
+    "signature": [67, 68, 48, 48, 49]
+  },
+  {
+    "type": "MPEG-4 (MP4/MOV/3GP)",
+    "offset": 4,
+    "signature": [102, 116, 121, 112]
+  },
+  {
+    "type": "QuickTime Movie (MOV)",
+    "offset": 4,
+    "signature": [102, 116, 121, 112, 113, 116, 32, 32]
+  },
+  {
+    "type": "Audio Video Interleave (AVI)",
+    "offset": 0,
+    "signature": [82, 73, 70, 70]
+  },
+  {
+    "type": "Matroska/WebM (MKV/WEBM)",
+    "offset": 0,
+    "signature": [26, 69, 223, 163]
+  },
+  {
+    "type": "MPEG Program Stream (MPG/MPEG)",
+    "offset": 0,
+    "signature": [0, 0, 1, 186]
+  },
+  {
+    "type": "MPEG Transport Stream (MTS/TS)",
+    "offset": 0,
+    "signature": [71]
+  },
+  {
+    "type": "Flash Video (FLV)",
+    "offset": 0,
+    "signature": [70, 76, 86]
+  },
+  {
+    "type": "Windows Media Video (WMV/ASF)",
+    "offset": 0,
+    "signature": [48, 38, 178, 117, 142, 192, 11, 217, 17, 166, 0, 64, 57, 150, 248, 102]
+  },
+  {
+    "type": "Ogg Media (OGG/OGV)",
+    "offset": 0,
+    "signature": [79, 103, 103, 83]
+  }
+]
