@@ -34,16 +34,34 @@ To use Sigil, you need to have the Rust toolchain installed.
     ```
 
 3.  **Run the program:**
-    ```sh
-    ./target/release/sigil <FILE_PATH>
-    ```
-    Replace `<FILE_PATH>` with the path to the file you want to check.
 
-    You can also provide a custom JSON file with file signatures using the `-i` or `--input-json-file` flag:
-    ```sh
-    ./target/release/sigil <FILE_PATH> -i /path/to/your/signatures.json
-    ```
-    If no input file is provided, Sigil will look for `data/magic_numbers_reference.json`.
+    Sigil can analyze both individual files and directories.
+
+    *   **To check a single file:**
+        ```sh
+        ./target/release/sigil <PATH>
+        ```
+        Replace `<PATH>` with the path to the file you want to check.
+
+    *   **To check all files in a directory:**
+        ```sh
+        ./target/release/sigil <PATH>
+        ```
+        Replace `<PATH>` with the path to the directory. Sigil will analyze all files directly within that folder.
+
+    *   **To recursively check all files in a directory:**
+        Use the `-r` or `--recursive` flag.
+        ```sh
+        ./target/release/sigil <PATH> -r
+        ```
+        This will analyze all files in the specified directory and all of its subdirectories.
+
+    *   **Options:**
+        You can provide a custom JSON file with file signatures using the `-i` or `--input-json-file` flag. This works for both file and directory analysis.
+        ```sh
+        ./target/release/sigil <PATH> -r -i /path/to/your/signatures.json
+        ```
+        If no input file is provided, Sigil will look for `data/magic_numbers_reference.json`.
 
 ## JSON Format
 

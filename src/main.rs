@@ -6,12 +6,16 @@ use clap::Parser;
 #[derive(Parser, Debug)]
 #[command(name = "Sigil", version = "1.0")]
 struct Cli {
-    /// File's path
+    /// File/Directory's path
     path: std::path::PathBuf,
 
     /// File path for an input JSON file with file signatures
     #[arg(short, long, default_value = "data/magic_numbers_reference.json")]
     input_json_file: std::path::PathBuf,
+
+    /// Recursively check all folders inside of that path
+    #[arg(short, long)]
+    recursive: bool,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -20,6 +24,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let config = AppConfig {
         path: cli.path,
         input_json_file: cli.input_json_file,
+        recursive: cli.recursive,
     };
 
     println!("The path is: '{}'", config.path.display());
