@@ -24,7 +24,7 @@ To use Sigil, you need to have the Rust toolchain installed.
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/your-username/sigil.git
+    git clone https://github.com/mmuramatsu/sigil.git
     cd sigil
     ```
 
