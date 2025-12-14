@@ -196,9 +196,9 @@ fn report(results: Vec<FileResult>) {
     println!("\n--- Verification Complete ---");
     println!("Total files scanned: {}", total_files);
     if should_use_emojis {
-        println!("{}", format!("✔️  Correct: {}", correct_files).green());
+        println!("{}", format!("✔️ Correct: {}", correct_files).green());
         println!("{}", format!("❌ Incorrect: {}", incorrect_files.len()).red());
-        println!("{}", format!("⚠️  Errors: {}", error_files.len()).yellow());
+        println!("{}", format!("⚠️ Errors: {}", error_files.len()).yellow());
     } else {
         println!("{}", format!("Correct: {}", correct_files).green());
         println!("{}", format!("Incorrect: {}", incorrect_files.len()).red());
