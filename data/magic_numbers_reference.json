@@ -60,12 +60,7 @@
     "signature": [73, 68, 51]
   },
   {
-    "type": "WAV",
-    "offset": 0,
-    "signature": [82, 73, 70, 70]
-  },
-  {
-    "type": "MPEG Video (MPG/MP4)",
+    "type": "MPEG Video (MPG/MP4/MOV/3GP/M4V)",
     "offset": 4,
     "signature": [102, 116, 121, 112]
   },
@@ -85,19 +80,9 @@
     "signature": [127, 69, 76, 70]
   },
   {
-    "type": "WebM/Matroska (MKV)",
-    "offset": 0,
-    "signature": [26, 69, 223, 163]
-  },
-  {
     "type": "ISO Disk Image",
     "offset": 32769,
     "signature": [67, 68, 48, 48, 49]
-  },
-  {
-    "type": "MPEG-4 (MP4/MOV/3GP)",
-    "offset": 4,
-    "signature": [102, 116, 121, 112]
   },
   {
     "type": "QuickTime Movie (MOV)",
@@ -105,7 +90,7 @@
     "signature": [102, 116, 121, 112, 113, 116, 32, 32]
   },
   {
-    "type": "Audio Video Interleave (AVI)",
+    "type": "RIFF container-based files (AVI/WEBP/WAV)",
     "offset": 0,
     "signature": [82, 73, 70, 70]
   },
