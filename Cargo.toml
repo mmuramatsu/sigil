@@ -11,11 +11,15 @@ clap = { version = "4.0", features = ["derive"] }
 serde = { version = "1.0", features = ["derive"] } 
 serde_json = "1.0"
 
-# Coling the text
+# Coloring the text
 colored = "2.0"
+atty = "0.2"
 
 # Recursively find the folders
 walkdir = "2"
+
+# For parallel execution
+rayon = "1.11"
 
 [[bin]]
 name = "sigil"

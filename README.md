@@ -4,7 +4,7 @@
 
 Sigil is a command-line tool written in Rust that verifies the integrity of a file by comparing its actual file type with its declared file type (based on the file extension). It identifies the actual file type by reading the file's "magic numbers" (the first few bytes of the file) and comparing them against a database of known file signatures.
 
-This tool is useful for detecting files that have been misnamed or intentionally disguised with a misleading file extension.
+This tool is useful for detecting files that have been misnamed or intentionally disguised with a misleading file extension. For directory scans, Sigil now leverages **parallel processing** for enhanced performance.
 
 ## How It Works
 
@@ -16,7 +16,7 @@ The process is as follows:
 2.  **Build Trie:** The signatures are loaded into a [Trie](https://en.wikipedia.org/wiki/Trie) data structure. A Trie is used for efficient searching of the magic numbers.
 3.  **Read File Header:** Sigil reads the first few bytes of the input file. The number of bytes read is determined by the maximum possible length of a signature and its offset, as defined in the JSON file.
 4.  **Search and Compare:** The Trie is used to search for a matching signature in the file's header. If a match is found, the identified file type is compared with the file's extension.
-5.  **Report Result:** Sigil reports whether the file's declared type matches its actual type.
+5.  **Aggregated Report:** Sigil aggregates all results (correct, incorrect, or error) and presents a comprehensive summary report at the end of the execution.
 
 ## Usage
 
@@ -35,7 +35,7 @@ To use Sigil, you need to have the Rust toolchain installed.
 
 3.  **Run the program:**
 
-    Sigil can analyze both individual files and directories.
+    Sigil can analyze both individual files and directories. When scanning directories, it utilizes **parallel processing** to speed up verification.
 
     *   **To check a single file:**
         ```sh
@@ -62,6 +62,22 @@ To use Sigil, you need to have the Rust toolchain installed.
         ./target/release/sigil <PATH> -r -i /path/to/your/signatures.json
         ```
         If no input file is provided, Sigil will look for `data/magic_numbers_reference.json`.
+
+    ### Output Reporting
+
+    Sigil provides a clear, aggregated report at the end, detailing:
+    *   Total files scanned.
+    *   Number of correct files.
+    *   Number of incorrect files (mismatched declared vs. actual type).
+    *   Number of files that caused an error during processing.
+
+    **Conditional Formatting:** The report uses colors and emojis when displayed in an interactive terminal. However, if you redirect the output to a file or pipe it to another command, colors and emojis will automatically be removed for cleaner plain-text output.
+
+    **Example: Redirecting Output**
+    ```sh
+    ./target/release/sigil some_directory -r > scan_report.txt
+    ```
+    This command will run Sigil on `some_directory` recursively, and save the plain-text report (without colors or emojis) into `scan_report.txt`.
 
 ## JSON Format
 

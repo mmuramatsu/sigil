@@ -54,7 +54,7 @@ impl MagicNumberTrie {
     /// This function will return an error if:
     /// * The file cannot be read.
     /// * The file content cannot be parsed as JSON.
-    pub fn from_file(path: &Path) -> Result<Self, Box<dyn Error>> {
+    pub fn from_file(path: &Path) -> Result<Self, Box<dyn Error + Send + Sync>> {
         let content = read_to_string(path)?;
         let signatures: Vec<SignatureEntry> = serde_json::from_str(&content)?;
 

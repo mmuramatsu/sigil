@@ -18,7 +18,7 @@ struct Cli {
     recursive: bool,
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let cli = Cli::parse();
 
     let config = AppConfig {
@@ -26,6 +26,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         input_json_file: cli.input_json_file,
         recursive: cli.recursive,
     };
+
+    if atty::isnt(atty::Stream::Stdout) {
+        colored::control::set_override(false);
+    }
 
     println!("The path is: '{}'", config.path.display());
     println!(

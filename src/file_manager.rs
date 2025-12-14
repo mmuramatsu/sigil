@@ -71,7 +71,7 @@ fn get_file_extension(path: &Path) -> Option<&str> {
 /// This function will return an error if:
 /// * The file has no extension.
 /// * The file cannot be read.
-pub fn get_file_info(path: PathBuf, buffer_size: u32) -> Result<FileSignature, Box<dyn Error>> {
+pub fn get_file_info(path: PathBuf, buffer_size: u32) -> Result<FileSignature, Box<dyn Error + Send + Sync>> {
     let buffer_size = buffer_size as usize;
     let declared_type = get_file_extension(&path)
         .ok_or(FileManagerError::MissingExtension)?
