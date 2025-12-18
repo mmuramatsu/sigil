@@ -23,7 +23,7 @@ pub struct AppConfig {
     /// The path to the file or directory that needs to be verified.
     pub path: PathBuf,
     /// The path to the JSON file containing the file signatures.
-    pub input_json_file: PathBuf,
+    pub input_json_file: Option<PathBuf>,
     /// Flag to activate recursive directory traversal.
     pub recursive: bool,
 }
@@ -60,8 +60,17 @@ pub enum FileResult {
 /// * The JSON file with signatures cannot be read.
 /// * The path to be verified does not exist or cannot be read.
 pub fn run(config: AppConfig) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
-    let trie = MagicNumberTrie::from_file(&config.input_json_file)?;
-    println!("Trie initialized successfully from JSON file.");
+    let trie = match config.input_json_file {
+        Some(path) => {
+            println!("Trie initialized successfully from '{}'.", path.display());
+            MagicNumberTrie::from_file(&path)?
+        }
+        None => {
+            println!("Trie initialized successfully from embedded JSON.");
+            let json_data = include_str!("../data/magic_numbers_reference.json");
+            MagicNumberTrie::from_str(json_data)?
+        }
+    };
     println!("Max buffer size: {} bytes.", trie.max_buffer_size);
 
     let path = config.path;

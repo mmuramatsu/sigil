@@ -10,8 +10,8 @@ struct Cli {
     path: std::path::PathBuf,
 
     /// File path for an input JSON file with file signatures
-    #[arg(short, long, default_value = "data/magic_numbers_reference.json")]
-    input_json_file: std::path::PathBuf,
+    #[arg(short, long)]
+    input_json_file: Option<std::path::PathBuf>,
 
     /// Recursively check all folders inside of that path
     #[arg(short, long)]
@@ -32,10 +32,6 @@ fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     }
 
     println!("The path is: '{}'", config.path.display());
-    println!(
-        "The input file path is: '{}'",
-        config.input_json_file.display()
-    );
 
     run(config)
 }

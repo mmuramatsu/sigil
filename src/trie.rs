@@ -56,7 +56,23 @@ impl MagicNumberTrie {
     /// * The file content cannot be parsed as JSON.
     pub fn from_file(path: &Path) -> Result<Self, Box<dyn Error + Send + Sync>> {
         let content = read_to_string(path)?;
-        let signatures: Vec<SignatureEntry> = serde_json::from_str(&content)?;
+        Self::from_str(&content)
+    }
+
+    /// Creates a new `MagicNumberTrie` from a JSON string.
+    ///
+    /// This function parses a JSON string containing file signatures and builds
+    /// a Trie from them.
+    ///
+    /// # Arguments
+    ///
+    /// * `content` - The JSON string.
+    ///
+    /// # Errors
+    ///
+    /// This function will return an error if the string content cannot be parsed as JSON.
+    pub fn from_str(content: &str) -> Result<Self, Box<dyn Error + Send + Sync>> {
+        let signatures: Vec<SignatureEntry> = serde_json::from_str(content)?;
 
         let mut trie = MagicNumberTrie::default();
         let mut unique_offsets: HashSet<u32> = HashSet::new();
